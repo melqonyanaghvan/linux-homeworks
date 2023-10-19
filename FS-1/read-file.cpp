@@ -6,11 +6,13 @@
 #include <string.h>
 #include <errno.h>
 
+
 int main(int argc, char** argv){
   if(argc < 2){
     std::cerr << "Error is found: file path is not given"<< std::endl;
     exit(1);
   }
+  
   char* file_name = argv[1];
   int buffer_size = 10;
   int op =  open(file_name, O_RDONLY);
