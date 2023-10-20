@@ -7,7 +7,7 @@
 #include <sys/types.h>
 
 int main(int argc, char** argv) {
-    if (argc < 3) {
+    if(argc < 3) {
         std::cerr << "Error: Some paths are not given" << std::endl;
         exit(1);
     }
@@ -16,11 +16,11 @@ int main(int argc, char** argv) {
     int source_file = open(source_path, O_RDONLY);
     int destination_file = open(destination_path, O_CREAT | O_WRONLY | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
     
-    if (source_file < 0) {
+    if(source_file < 0) {
         std::cerr << strerror(errno) << std::endl;
         exit(errno);
       }
-    if (destination_file < 0) {
+    if(destination_file < 0) {
         std::cerr << strerror(errno) << std::endl;
         exit(errno);
       }
@@ -29,17 +29,17 @@ int main(int argc, char** argv) {
 
     int read_bytes = 0;
     int write_bytes = 0;
-    while (true) {
+    while(true) {
         read_bytes = read(source_file, buffer, buffer_size);
-        if (read_bytes < 0) {
+        if(read_bytes < 0) {
            std::cerr << strerror(errno) << std::endl;
            exit(errno);
           }
-        if (read_bytes == 0) {
+        if(read_bytes == 0) {
            break;
           }
         write_bytes = write(destination_file, buffer, read_bytes);
-        if (write_bytes < 0) {
+        if(write_bytes < 0) {
            std::cerr << strerror(errno) << std::endl;
            exit(errno);
         }
