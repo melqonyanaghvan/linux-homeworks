@@ -34,8 +34,7 @@ int main(int argc, char** argv){
     int thread_count = stoi(argv[2]);
     int* array = new int[size];
     
-    for(int i = 0; i < size; i++)
-    {
+    for(int i = 0; i < size; i++) {
         array[i] = rand() ;
     }
     
@@ -80,13 +79,10 @@ int main(int argc, char** argv){
     double duration_with_threads = chrono::duration_cast<std::chrono::milliseconds>(end - begin).count();
     
     cout << "Time spent without threads: " << duration_without_threads << " milliseconds" << std::endl;
-	cout << "Time spent with " << thread_count << " threads: " << duration_with_threads << " milliseconds" << std::endl;
+    cout << "Time spent with " << thread_count << " threads: " << duration_with_threads << " milliseconds" << std::endl;
     
     delete[] array_of_args;
     delete[] array;
-
-
-
-    
+	
     return 0;
 }
