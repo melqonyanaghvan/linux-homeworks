@@ -29,10 +29,11 @@ int main() {
     action.sa_flags = SA_SIGINFO;
 
     int res = sigaction(SIGUSR1, &sig_action, NULL);
+    
     if (res < 0){
       std::cerr << strerror(errno) << std::endl;
     }
-  
+    
     while(true){
       sleep(10);
     }
