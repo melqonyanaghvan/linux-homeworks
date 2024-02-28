@@ -24,11 +24,11 @@ void sigusr_handler(int sig, siginfo_t* info, void* context){
 
 int main() {
     struct sigaction sig_action;
-    memset(&sig_action, 0, sizeof(action));
+    memset(&sig_action, 0, sizeof(sig_action));
     action.sa_sigaction = sigusr_handler;
     action.sa_flags = SA_SIGINFO;
 
-    int res = sigaction(SIGUSR1, &action, NULL);
+    int res = sigaction(SIGUSR1, &sig_action, NULL);
     if (res < 0){
       std::cerr << strerror(errno) << std::endl;
     }
