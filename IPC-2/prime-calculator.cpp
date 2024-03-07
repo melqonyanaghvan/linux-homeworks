@@ -106,7 +106,6 @@ int main(){
         std::cerr << strerror(errno) << std::endl;
         exit(errno);
       }
-    //  std::cout << "[Child] Calculating " << num << "-th prime number..." << std::endl;
       int prime_number = mth_prime(num);
       int write_result = write(pipe_second[1], &prime_number, sizeof(int));
       
